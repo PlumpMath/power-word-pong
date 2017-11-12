@@ -54,62 +54,80 @@ v_speed = 0
 
 h_in = 0;
 v_in = 0;
-if (keyboard_check(vk_left))
-{
-    h_in -= 1;
-}
-if (keyboard_check(vk_right))
-{
-    h_in += 1;
-}
-if (keyboard_check(vk_up))
-{
-    v_in -=1;
-}
-if (keyboard_check(vk_down))
-{
-    v_in +=1;
-}
 
-if (h_in==0)
-{
-    h_speed = f_diff(h_speed, acc*3, 0);
-}
-else if (h_in&gt;0)
-{
-    h_speed = f_diff(h_speed, acc, max_speed)   ;
+is_attacking = place_meeting(x,y,o_fireball)
+
+if (is_attacking == false) {
+    
+    // Leer el teclado.
+    if (keyboard_check(vk_left))
+    {
+        h_in -= 1;
+    }
+    if (keyboard_check(vk_right))
+    {
+        h_in += 1;
+    }
+    if (keyboard_check(vk_up))
+    {
+        v_in -=1;
+    }
+    if (keyboard_check(vk_down))
+    {
+        v_in +=1;
+    }
+    
+    
+    // Establecer velocidades.
+    if (h_in==0)
+    {
+        h_speed = f_diff(h_speed, acc*3, 0);
+    }
+    else if (h_in&gt;0)
+    {
+        h_speed = f_diff(h_speed, acc, max_speed)   ;
+    }
+    else
+    {
+        h_speed = f_diff(h_speed, acc, -max_speed);
+    }
+    
+    if (v_in==0)
+    {
+        v_speed = f_diff(v_speed, acc*3, 0);
+    }
+    else if (v_in&gt;0)
+    {
+        v_speed = f_diff(v_speed, acc, max_speed);
+    }
+    else
+    {
+        v_speed = f_diff(v_speed, acc, -max_speed);
+    }
+    
+    // Animar.
+    sprite_index = WizardWalking;
+    if (h_speed==0 &amp;&amp; v_speed==0)
+    {
+        image_speed = 0;
+    }
+    else
+    {
+        image_speed = 3/room_speed;
+    }
+    
+    // Mirar hacia la dirección correcta.
+    if (h_speed!=0) { image_xscale = sign(h_speed); }
+    
+    // Moverse.
+    x += h_speed;
+    y += v_speed;
 }
 else
 {
-    h_speed = f_diff(h_speed, acc, -max_speed);
+    sprite_index = WizardAttacking;
+    image_speed = 5/room_speed;
 }
-
-if (v_in==0)
-{
-    v_speed = f_diff(v_speed, acc*3, 0);
-}
-else if (v_in&gt;0)
-{
-    v_speed = f_diff(v_speed, acc, max_speed);
-}
-else
-{
-    v_speed = f_diff(v_speed, acc, -max_speed);
-}
-
-if (h_speed==0 &amp;&amp; v_speed==0)
-{
-    image_speed = 0;
-}
-else
-{
-    image_speed = 3/room_speed;
-}
-
-if (h_speed!=0) { image_xscale = sign(h_speed); }
-
-x += h_speed;
-y += v_speed;
 </string>
           </argument>
         </arguments>

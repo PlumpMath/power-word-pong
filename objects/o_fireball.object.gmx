@@ -40,7 +40,7 @@ boundaries_margin = 20
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="0">
+    <event eventtype="3" enumb="1">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -57,11 +57,13 @@ boundaries_margin = 20
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (x&lt;boundaries_margin)
+            <string>collision_other = instance_place(x + h_speed, y + v_speed, o_wizard)
+
+if (x&lt;boundaries_margin || collision_other!=noone &amp;&amp; collision_other.team == 1)
 {
     h_target_speed = max_speed;
 }
-else if (x&gt;room_width-boundaries_margin)
+else if (x&gt;room_width-boundaries_margin || collision_other!=noone &amp;&amp; collision_other.team == 2)
 {
     h_target_speed = -max_speed;
 }
