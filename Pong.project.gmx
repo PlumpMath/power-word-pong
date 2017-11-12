@@ -16,7 +16,8 @@
     <script>scripts\f_diff.gml</script>
   </scripts>
   <objects name="objects">
-    <object>objects\o_warrior</object>
+    <object>objects\o_wizard</object>
+    <object>objects\o_fireball</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>
