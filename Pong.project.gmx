@@ -18,6 +18,7 @@
   <objects name="objects">
     <object>objects\o_wizard</object>
     <object>objects\o_fireball</object>
+    <object>objects\o_controller</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>
