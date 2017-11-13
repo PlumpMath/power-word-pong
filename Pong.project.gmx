@@ -6,9 +6,12 @@
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
-    <sprite>sprites\WizardWalking</sprite>
-    <sprite>sprites\WizardAttacking</sprite>
-    <sprite>sprites\Fireball</sprite>
+    <sprite>sprites\s_wizard_walk_B</sprite>
+    <sprite>sprites\s_wizard_walk_R</sprite>
+    <sprite>sprites\s_wizard_attack_B</sprite>
+    <sprite>sprites\s_wizard_attack_R</sprite>
+    <sprite>sprites\s_fireball</sprite>
+    <sprite>sprites\s_iceball</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -17,8 +20,9 @@
   </scripts>
   <objects name="objects">
     <object>objects\o_wizard</object>
-    <object>objects\o_fireball</object>
+    <object>objects\o_ball</object>
     <object>objects\o_controller</object>
+    <object>objects\o_score</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>

@@ -20,6 +20,6 @@
   <width>48</width>
   <height>64</height>
   <frames>
-    <frame index="0">images\WizardAttacking_0.png</frame>
+    <frame index="0">images\s_wizard_attack_B_0.png</frame>
   </frames>
 </sprite>

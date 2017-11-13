@@ -8,7 +8,7 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="3" enumb="2">
+    <event eventtype="0" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -25,70 +25,14 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var new_selected = -1;
-
-if (team==1 &amp;&amp; keyboard_check_pressed(ord('F')) || team==2 &amp;&amp; keyboard_check_pressed(ord('I')))
-{
-    new_selected = 0;
-}
-if (team==1 &amp;&amp; keyboard_check_pressed(ord('G')) || team==2 &amp;&amp; keyboard_check_pressed(ord('O')))
-{
-    new_selected = 1;
-}
-if (team==1 &amp;&amp; keyboard_check_pressed(ord('H')) || team==2 &amp;&amp; keyboard_check_pressed(ord('P')))
-{
-    new_selected = 2;
-}
-
-if (new_selected != -1) {
-    for (var i=0; i&lt;array_length_1d(units); i++)
-    {
-        units[i].selected = (new_selected == i);
-    }
-}
-
-
+            <string>global.scores[0]=0
+global.scores[1]=0
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="7" enumb="2">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>// Guardamos las unidades controladas por este controlador.
-
-var count=0;
-
-for (var i=0; i&lt;instance_number(o_wizard); i++)
-{
-    var w = instance_find(o_wizard, i);
-    if (w.team == team)
-    {
-        units[count] = w;
-        count += 1;
-    }
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="0">
+    <event eventtype="8" enumb="64">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -107,10 +51,8 @@ for (var i=0; i&lt;instance_number(o_wizard); i++)
             <kind>1</kind>
             <string>draw_set_alpha(1);
 draw_set_colour(c_black);
-for (var i=0; i&lt;array_length_1d(units); i++)
-{
-    draw_text(units[i].x, units[i].y + units[i].sprite_height, string(i+1));
-}
+draw_text(window_get_width()/3, 20, global.scores[0]);
+draw_text(window_get_width()/3*2, 20, global.scores[1]);
 </string>
           </argument>
         </arguments>
