@@ -17,6 +17,7 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\f_diff.gml</script>
+    <script>scripts\f_score.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\o_wizard</object>

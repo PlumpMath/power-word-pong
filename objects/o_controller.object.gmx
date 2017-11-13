@@ -27,15 +27,15 @@
             <kind>1</kind>
             <string>var new_selected = -1;
 
-if (team==1 &amp;&amp; keyboard_check_pressed(ord('F')) || team==2 &amp;&amp; keyboard_check_pressed(ord('I')))
+if (team==0 &amp;&amp; keyboard_check_pressed(ord('F')) || team==1 &amp;&amp; keyboard_check_pressed(ord('I')))
 {
     new_selected = 0;
 }
-if (team==1 &amp;&amp; keyboard_check_pressed(ord('G')) || team==2 &amp;&amp; keyboard_check_pressed(ord('O')))
+if (team==0 &amp;&amp; keyboard_check_pressed(ord('G')) || team==1 &amp;&amp; keyboard_check_pressed(ord('O')))
 {
     new_selected = 1;
 }
-if (team==1 &amp;&amp; keyboard_check_pressed(ord('H')) || team==2 &amp;&amp; keyboard_check_pressed(ord('P')))
+if (team==0 &amp;&amp; keyboard_check_pressed(ord('H')) || team==1 &amp;&amp; keyboard_check_pressed(ord('P')))
 {
     new_selected = 2;
 }

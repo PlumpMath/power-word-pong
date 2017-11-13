@@ -63,19 +63,19 @@ if (is_attacking == false) {
     
     if (selected) {
         // Leer el teclado.
-        if (team == 1 &amp;&amp; keyboard_check(ord('A')) || team == 2 &amp;&amp; keyboard_check(vk_left))
+        if (team == 0 &amp;&amp; keyboard_check(ord('A')) || team == 1 &amp;&amp; keyboard_check(vk_left))
         {
             h_in -= 1;
         }
-        if (team == 1 &amp;&amp; keyboard_check(ord('D')) || team==2 &amp;&amp; keyboard_check(vk_right))
+        if (team == 0 &amp;&amp; keyboard_check(ord('D')) || team==1 &amp;&amp; keyboard_check(vk_right))
         {
             h_in += 1;
         }
-        if (team == 1 &amp;&amp; keyboard_check(ord('W')) || team==2 &amp;&amp; keyboard_check(vk_up))
+        if (team == 0 &amp;&amp; keyboard_check(ord('W')) || team==1 &amp;&amp; keyboard_check(vk_up))
         {
             v_in -=1;
         }
-        if (team == 1 &amp;&amp; keyboard_check(ord('S')) || team==2 &amp;&amp; keyboard_check(vk_down))
+        if (team == 0 &amp;&amp; keyboard_check(ord('S')) || team==1 &amp;&amp; keyboard_check(vk_down))
         {
             v_in +=1;
         }
@@ -154,12 +154,12 @@ else if (is_attacking)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (team==1)
+            <string>if (team==0)
 {
     sprite_walk = s_wizard_walk_B;
     sprite_attack = s_wizard_attack_B;
 }
-else
+else if (team==1)
 {
     sprite_walk = s_wizard_walk_R;
     sprite_attack = s_wizard_attack_R;
