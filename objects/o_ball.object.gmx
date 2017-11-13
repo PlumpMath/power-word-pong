@@ -37,6 +37,8 @@ h_speed = 0
 v_speed = 0
 max_speed = 4
 
+can_transform = true;
+
 h_target_speed = max_speed
 v_target_speed = max_speed
 
@@ -88,10 +90,19 @@ else if (y&gt;room_height-boundaries_margin)
     v_target_speed = -max_speed;
 }
 
-// Cuando rebote contra un jugador, convertirse.
-if (collision_other != noone)
+// Cuando rebote contra un jugador, convertirse o cambiar de dirección vertical.
+if (collision_other != noone &amp;&amp; can_transform)
 {
+    if (collision_other.team == 1 &amp;&amp; sprite_index == sprite_ball[0] || collision_other.team == 2 &amp;&amp; sprite_index == sprite_ball[1])
+    {
+        v_target_speed = -v_target_speed;
+    }
     sprite_index = sprite_ball[collision_other.team-1];
+    can_transform = false;
+}
+else if (collision_other == noone)
+{
+    can_transform = true;
 }
 
 h_speed = f_diff(h_speed, acceleration, h_target_speed);
