@@ -27,6 +27,12 @@
             <kind>1</kind>
             <string>global.scores[0]=0;
 global.scores[1]=0;
+
+// Arriba, derecha, abajo, izquierda.
+global.boundaries[0] = 105
+global.boundaries[1] = room_width - 20
+global.boundaries[2] = room_height - 20;
+global.boundaries[3] = 20;
 </string>
           </argument>
         </arguments>

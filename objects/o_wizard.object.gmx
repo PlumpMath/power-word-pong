@@ -25,8 +25,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>acc = 1
-max_speed = 30;
+            <string>acc = 0.5
+max_speed = 1;
+
+h_speed = 0;
+v_speed = 0;
 
 selected = false;
 </string>
@@ -51,9 +54,7 @@ selected = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>h_speed = 0
-v_speed = 0
-
+            <string>
 h_in = 0;
 v_in = 0;
 
@@ -125,6 +126,9 @@ if (is_attacking == false) {
     // Moverse.
     x += h_speed;
     y += v_speed;
+    
+    x = clamp(x, global.boundaries[3], global.boundaries[1]);
+    y = clamp(y, global.boundaries[0], global.boundaries[2]);
 }
 else if (is_attacking)
 {

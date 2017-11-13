@@ -29,25 +29,53 @@
 
 acceleration = 1
 
-rotation_frequency = 4;
-rotation_direction = 1;
-rotation_counter = rotation_frequency
+sprite_ball[0] = s_iceball;
+sprite_ball[1] = s_fireball;
+
+can_score = true;
+can_transform = true;
 
 h_speed = 0
 v_speed = 0
 max_speed = 4
 
-can_transform = true;
-
-h_target_speed = max_speed
-v_target_speed = max_speed
-
-boundaries_margin = 20
-
-sprite_ball[0] = s_iceball;
-sprite_ball[1] = s_fireball;
+rotation_frequency = 4;
+rotation_direction = 1;
+rotation_counter = rotation_frequency
 
 image_speed = 4/room_speed
+
+var initial = irandom(1);
+sprite_index = sprite_ball[initial];
+
+h_target_speed = max_speed * (1-2*initial); //0-&gt;1, 1-&gt;-1
+v_target_speed = max_speed;
+
+playing = false;
+alarm[0] = room_speed * 2;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>playing = true;
 </string>
           </argument>
         </arguments>
@@ -70,10 +98,12 @@ image_speed = 4/room_speed
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>collision_other = instance_place(x + h_speed, y + v_speed, o_wizard)
+            <string>if (playing==false) { exit; }
+
+collision_other = instance_place(x + h_speed, y + v_speed, o_wizard)
 
 // Rebotes.
-if (x&lt;boundaries_margin)
+if (x&lt;global.boundaries[3])
 {
     h_target_speed = max_speed;
     if (can_score &amp;&amp; sprite_index == sprite_ball[1])
@@ -82,7 +112,7 @@ if (x&lt;boundaries_margin)
         f_score(1);
     }
 }
-else if (x&gt;room_width-boundaries_margin)
+else if (x&gt;global.boundaries[1])
 {
     h_target_speed = -max_speed;
     if (can_score &amp;&amp; sprite_index == sprite_ball[0])
@@ -91,11 +121,11 @@ else if (x&gt;room_width-boundaries_margin)
         f_score(0);
     }
 }
-if (y&lt;boundaries_margin)
+if (y&lt;global.boundaries[0])
 {
     v_target_speed = max_speed;
 }
-else if (y&gt;room_height-boundaries_margin)
+else if (y&gt;global.boundaries[2])
 {
     v_target_speed = -max_speed;
 }
@@ -117,7 +147,7 @@ else if (collision_other == noone)
 }
 
 // Puede volver a puntuar una vez salga de la zona de puntajes.
-if (x&gt;boundaries_margin &amp;&amp; x&lt;room_width-boundaries_margin)
+if (x&gt;global.boundaries[3] &amp;&amp; x&lt;global.boundaries[1])
 {
     can_score = true;
 }
