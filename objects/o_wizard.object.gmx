@@ -62,26 +62,15 @@ is_attacking = place_meeting(x,y,o_ball);
 
 if (is_attacking == false) {
     
-    if (selected) {
-        // Leer el teclado.
-        if (team == 0 &amp;&amp; keyboard_check(ord('A')) || team == 1 &amp;&amp; keyboard_check(vk_left))
-        {
-            h_in -= 1;
-        }
-        if (team == 0 &amp;&amp; keyboard_check(ord('D')) || team==1 &amp;&amp; keyboard_check(vk_right))
-        {
-            h_in += 1;
-        }
-        if (team == 0 &amp;&amp; keyboard_check(ord('W')) || team==1 &amp;&amp; keyboard_check(vk_up))
-        {
-            v_in -=1;
-        }
-        if (team == 0 &amp;&amp; keyboard_check(ord('S')) || team==1 &amp;&amp; keyboard_check(vk_down))
-        {
-            v_in +=1;
-        }
+    if (global.use_ai[team])
+    {
+        f_ai_controller();
     }
-    
+    else
+    {
+        f_user_controller();
+    }
+
     // Establecer velocidades.
     if (h_in==0)
     {
@@ -141,7 +130,7 @@ else if (is_attacking)
         </arguments>
       </action>
     </event>
-    <event eventtype="7" enumb="2">
+    <event eventtype="7" enumb="4">
       <action>
         <libid>1</libid>
         <id>603</id>

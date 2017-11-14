@@ -53,7 +53,7 @@ if (new_selected != -1) {
         </arguments>
       </action>
     </event>
-    <event eventtype="7" enumb="2">
+    <event eventtype="7" enumb="4">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -105,12 +105,18 @@ for (var i=0; i&lt;instance_number(o_wizard); i++)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_alpha(1);
+            <string>draw_set_alpha(0.6);
 draw_set_colour(c_black);
+draw_set_halign(fa_center);
+draw_set_valign(fa_top);
+draw_set_font(m3x6_small);
+
 for (var i=0; i&lt;array_length_1d(units); i++)
 {
-    draw_text(units[i].x, units[i].y + units[i].sprite_height, string(i+1));
+    draw_text(units[i].x, units[i].y+units[i].sprite_height/2-5, string(i+1));
 }
+
+draw_set_alpha(1);
 </string>
           </argument>
         </arguments>

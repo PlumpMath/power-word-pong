@@ -12,23 +12,36 @@
     <sprite>sprites\s_wizard_attack_R</sprite>
     <sprite>sprites\s_fireball</sprite>
     <sprite>sprites\s_iceball</sprite>
+    <sprite>sprites\s_fire_wall</sprite>
+    <sprite>sprites\s_ice_wall</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
+    <background>background\instructions</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\f_diff.gml</script>
     <script>scripts\f_score.gml</script>
+    <script>scripts\f_user_controller.gml</script>
+    <script>scripts\f_ai_controller.gml</script>
   </scripts>
+  <fonts name="fonts">
+    <font>fonts\m3x6</font>
+    <font>fonts\m3x6_small</font>
+  </fonts>
   <objects name="objects">
     <object>objects\o_wizard</object>
     <object>objects\o_ball</object>
     <object>objects\o_controller</object>
     <object>objects\o_score</object>
+    <object>objects\o_firewall</object>
+    <object>objects\o_icewall</object>
+    <object>objects\o_init</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\room0</room>
+    <room>rooms\rm_menu</room>
+    <room>rooms\rm_game</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

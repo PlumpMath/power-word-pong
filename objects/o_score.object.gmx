@@ -55,10 +55,38 @@ global.boundaries[3] = 20;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_alpha(1);
+            <string>draw_set_alpha(0.75);
 draw_set_colour(c_black);
+draw_set_halign(fa_center);
+draw_set_font(m3x6);
+
 draw_text(window_get_width()/3, 20, global.scores[0]);
 draw_text(window_get_width()/3*2, 20, global.scores[1]);
+
+draw_set_alpha(1);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="27">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>room_goto(rm_menu);
 </string>
           </argument>
         </arguments>
