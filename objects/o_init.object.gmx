@@ -28,6 +28,9 @@
             <string>global.use_ai[0] = false;
 global.use_ai[1] = true;
 
+global.music = true;
+global.sfx = true;
+
 room_goto(rm_game);
 </string>
           </argument>

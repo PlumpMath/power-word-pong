@@ -32,6 +32,9 @@ acceleration = 1
 sprite_ball[0] = s_iceball;
 sprite_ball[1] = s_fireball;
 
+sfx_hit[0] = snd_ice_attack;
+sfx_hit[1] = snd_fire_attack;
+
 can_score = true;
 //can_transform = true;
 collision_last = noone;
@@ -111,6 +114,7 @@ if (x&lt;global.boundaries[3])
     {
         can_score = false;
         f_score(1);
+        f_sfx(snd_fire_score);
     }
 }
 else if (x&gt;global.boundaries[1])
@@ -120,6 +124,7 @@ else if (x&gt;global.boundaries[1])
     {
         can_score = false;
         f_score(0);
+        f_sfx(snd_ice_score);
     }
 }
 if (y&lt;global.boundaries[0])
@@ -140,6 +145,8 @@ if (collision_other != noone &amp;&amp; collision_other != collision_last)
         v_target_speed = -v_target_speed;
     }
     sprite_index = sprite_ball[collision_other.team];
+    f_sfx(sfx_hit[collision_other.team]);
+    
     collision_last = collision_other;
 }
 else if (collision_other == noone)
