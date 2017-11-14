@@ -33,11 +33,12 @@ sprite_ball[0] = s_iceball;
 sprite_ball[1] = s_fireball;
 
 can_score = true;
-can_transform = true;
+//can_transform = true;
+collision_last = noone;
 
 h_speed = 0
 v_speed = 0
-max_speed = 4
+max_speed = 6
 
 rotation_frequency = 4;
 rotation_direction = 1;
@@ -131,7 +132,7 @@ else if (y&gt;global.boundaries[2])
 }
 
 // Cuando rebote contra un jugador, convertirse o cambiar de dirección vertical.
-if (collision_other != noone &amp;&amp; can_transform)
+if (collision_other != noone &amp;&amp; collision_other != collision_last)
 {
     h_target_speed = max_speed * (1-2*collision_other.team); //0-&gt;1, 1-&gt; -1
     if (collision_other.team == 0 &amp;&amp; sprite_index == sprite_ball[0] || collision_other.team == 1 &amp;&amp; sprite_index == sprite_ball[1])
@@ -139,11 +140,11 @@ if (collision_other != noone &amp;&amp; can_transform)
         v_target_speed = -v_target_speed;
     }
     sprite_index = sprite_ball[collision_other.team];
-    can_transform = false;
+    collision_last = collision_other;
 }
 else if (collision_other == noone)
 {
-    can_transform = true;
+    collision_last = noone;
 }
 
 // Puede volver a puntuar una vez salga de la zona de puntajes.
@@ -164,6 +165,8 @@ if (rotation_counter &lt;= 0)
     image_angle += 90 * rotation_direction;
     rotation_counter = rotation_frequency;
 }
+
+depth = -y;
 </string>
           </argument>
         </arguments>
