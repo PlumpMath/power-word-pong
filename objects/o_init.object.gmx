@@ -117,14 +117,14 @@ if (global.sfx) { sfx = "ON"; } else { sfx = "OFF"; }
 
 
 draw_set_color(c_navy);
-draw_text(room_width/2, 350, "[ S ] Ice Wizards: " + p1);
+draw_text(room_width/2, 310, "[ S ] Ice Wizards: " + p1);
 draw_set_color(c_maroon);
-draw_text(room_width/2, 420, "[ Down ] Fire Wizards: " + p2);
+draw_text(room_width/2, 370, "[ Down ] Fire Wizards: " + p2);
 
 draw_set_color(c_black);
-draw_text(room_width/2, 550, "[ M ] Music is " + music + ", SFX are " + sfx);
+draw_text(room_width/2, 470, "[ M ] Music is " + music + ", SFX are " + sfx);
 
-draw_text(room_width/2, 650, "[ ENTER ] to start, [ ESC ] to quit.");
+draw_text(room_width/2, 570, "[ ENTER ] to start, [ ESC ] to quit.");
 </string>
           </argument>
         </arguments>

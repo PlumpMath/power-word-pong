@@ -166,10 +166,12 @@ v_speed = f_diff(v_speed, acceleration, v_target_speed);
 x += h_speed
 y += v_speed
 
+if (h_speed!=0) { image_xscale = sign(-h_speed); }
+
 rotation_counter -= 1;
 if (rotation_counter &lt;= 0)
 {
-    image_angle += 90 * rotation_direction;
+    image_angle += 90 * sign(-h_speed); //rotation_direction;
     rotation_counter = rotation_frequency;
 }
 
