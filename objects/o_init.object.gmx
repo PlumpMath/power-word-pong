@@ -122,9 +122,13 @@ draw_set_color(c_maroon);
 draw_text(room_width/2, 370, "[ Down ] Fire Wizards: " + p2);
 
 draw_set_color(c_black);
-draw_text(room_width/2, 470, "[ M ] Music is " + music + ", SFX are " + sfx);
+draw_text(room_width/2, 460, "[ M ] Music is " + music + ", SFX are " + sfx);
 
-draw_text(room_width/2, 570, "[ ENTER ] to start, [ ESC ] to quit.");
+draw_text(room_width/2, 550, "[ ENTER ] to start, [ ESC ] to quit.");
+
+draw_set_font(m3x6_small);
+draw_text(room_width/2, 665, "Game, graphics and audio by Racso - http://racso.itch.io#m3x6 font by Daniel Linssen");
+
 </string>
           </argument>
         </arguments>
