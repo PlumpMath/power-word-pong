@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>team = 1
+            <string>randomize();
+
+team = 1
 
 acceleration = 1
 
@@ -53,7 +55,7 @@ var initial = irandom(1);
 sprite_index = sprite_ball[initial];
 
 h_target_speed = max_speed * (1-2*initial); //0-&gt;1, 1-&gt;-1
-v_target_speed = max_speed;
+v_target_speed = max_speed * (1-2*irandom(1)); //0-&gt;1, 1-&gt;-1
 
 playing = false;
 alarm[0] = room_speed * 2;
