@@ -25,17 +25,20 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.ai[0] = 0;
-global.ai[1] = 1;
-
-global.ai_names[0] = "PLAYER";
+            <string>global.ai_names[0] = "PLAYER";
 global.ai_names[1] = "APPRENTICE AI";
 global.ai_names[2] = "MASTER AI";
 global.ai_names[3] = "ARCHMAGUS AI";
 
-global.music = true;
-global.sfx = true;
+ini_open("prefs.ini");
 
+global.ai[0] = ini_read_real("Preferences", "ai0", 0);
+global.ai[1] = ini_read_real("Preferences", "ai1", 1);
+
+global.music = ini_read_real("Preferences", "music", 1);
+global.sfx = ini_read_real("Preferences", "sfx", 1);
+
+ini_close();
 </string>
           </argument>
         </arguments>
@@ -69,16 +72,20 @@ if (keyboard_check_pressed(vk_escape))
 if (keyboard_check_pressed(ord("S")))
 {
     global.ai[0] = (global.ai[0]+1) % array_length_1d(global.ai_names);
+    f_save_config();
 }
 if (keyboard_check_pressed(vk_down))
 {
     global.ai[1] = (global.ai[1]+1) % array_length_1d(global.ai_names);
+    f_save_config();
 }
 if (keyboard_check_pressed(ord("M")))
 {
     global.sfx = !global.sfx;
     if (global.sfx) { global.music = !global.music; }
+    f_save_config();
 }
+
 
 </string>
           </argument>

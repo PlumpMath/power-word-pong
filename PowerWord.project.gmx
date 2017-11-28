@@ -35,6 +35,7 @@
     <script>scripts\f_ai_controller_medium.gml</script>
     <script>scripts\f_ai_controller_hard.gml</script>
     <script>scripts\f_sfx.gml</script>
+    <script>scripts\f_save_config.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\m3x6</font>
