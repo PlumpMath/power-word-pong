@@ -31,7 +31,9 @@
     <script>scripts\f_diff.gml</script>
     <script>scripts\f_score.gml</script>
     <script>scripts\f_user_controller.gml</script>
-    <script>scripts\f_ai_controller.gml</script>
+    <script>scripts\f_ai_controller_easy.gml</script>
+    <script>scripts\f_ai_controller_medium.gml</script>
+    <script>scripts\f_ai_controller_hard.gml</script>
     <script>scripts\f_sfx.gml</script>
   </scripts>
   <fonts name="fonts">

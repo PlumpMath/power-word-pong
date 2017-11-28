@@ -80,6 +80,9 @@ for (var i=0; i&lt;instance_number(o_wizard); i++)
     if (w.team == team)
     {
         units[count] = w;
+        w.number = count+1;
+        w.team_units = units;
+        
         count += 1;
     }
 }
@@ -109,7 +112,7 @@ if (team==1) { color = make_colour_rgb(60,1,1); }
           <argument>
             <kind>1</kind>
             <string>
-if (global.use_ai[team]) { exit; }
+if (global.ai[team]&gt;0) { exit; }
 
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);

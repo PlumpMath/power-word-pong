@@ -62,13 +62,20 @@ is_attacking = place_meeting(x,y,o_ball);
 
 if (is_attacking == false) {
     
-    if (global.use_ai[team])
+    switch (global.ai[team])
     {
-        f_ai_controller();
-    }
-    else
-    {
-        f_user_controller();
+        case 0:
+            f_user_controller();
+            break;
+        case 1:
+            f_ai_controller_easy();
+            break;
+        case 2:
+            f_ai_controller_medium();
+            break;
+        case 3:
+            f_ai_controller_hard();
+            break;
     }
 
     // Establecer velocidades.

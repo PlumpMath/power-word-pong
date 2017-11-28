@@ -25,8 +25,13 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.use_ai[0] = false;
-global.use_ai[1] = true;
+            <string>global.ai[0] = 0;
+global.ai[1] = 1;
+
+global.ai_names[0] = "PLAYER";
+global.ai_names[1] = "APPRENTICE AI";
+global.ai_names[2] = "MASTER AI";
+global.ai_names[3] = "ARCHMAGUS AI";
 
 global.music = true;
 global.sfx = true;
@@ -63,11 +68,11 @@ if (keyboard_check_pressed(vk_escape))
 }
 if (keyboard_check_pressed(ord("S")))
 {
-    global.use_ai[0] = !global.use_ai[0];
+    global.ai[0] = (global.ai[0]+1) % array_length_1d(global.ai_names);
 }
 if (keyboard_check_pressed(vk_down))
 {
-    global.use_ai[1] = !global.use_ai[1];
+    global.ai[1] = (global.ai[1]+1) % array_length_1d(global.ai_names);
 }
 if (keyboard_check_pressed(ord("M")))
 {
@@ -103,12 +108,11 @@ draw_set_alpha(1);
 draw_set_font(m3x6_mid);
 draw_set_halign(fa_center);
 
-var p1;
-var p2;
-if (global.use_ai[0]) { p1 = "COMPUTER AI"; } else { p1 = "PLAYER"; }
-if (global.use_ai[1]) { p2 = "COMPUTER AI"; } else { p2 = "PLAYER"; }
-
-
+var playerText;
+for (i=0; i&lt;2; i++)
+{
+    playerText[i] = global.ai_names[global.ai[i]];
+}
 
 var music;
 var sfx;
@@ -117,9 +121,9 @@ if (global.sfx) { sfx = "ON"; } else { sfx = "OFF"; }
 
 
 draw_set_color(c_navy);
-draw_text(room_width/2, 310, "[ S ] Ice Wizards: " + p1);
+draw_text(room_width/2, 310, "[ S ] Ice Wizards: " + playerText[0]);
 draw_set_color(c_maroon);
-draw_text(room_width/2, 370, "[ Down ] Fire Wizards: " + p2);
+draw_text(room_width/2, 370, "[ Down ] Fire Wizards: " + playerText[1]);
 
 draw_set_color(c_black);
 draw_text(room_width/2, 460, "[ M ] Music is " + music + ", SFX are " + sfx);
